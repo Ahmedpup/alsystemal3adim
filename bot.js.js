@@ -1541,30 +1541,6 @@ $role @mention rolename ~ لأعطاء رتبة لعضو معين
    }
    }); 
 
-const math = require('math-expression-evaluator');
-const stripIndents = require('common-tags').stripIndents;
- 
-client.on('message', msg => {
- if (msg.content.startsWith(prefix + 'calculate')) {
-    let args = msg.content.split(" ").slice(1);
-        const question = args.join(' ');
-    if (args.length < 1) {
-        msg.reply('Specify a equation, please.');
-} else {    let answer;
-    try {
-        answer = math.eval(question);
-    } catch (err) {
-        msg.reply(`Error: ${err}`);
-    }
-   
-    const embed = new Discord.RichEmbed()
-    .addField("**Input**: ",`**${question}**`, true)
-    .addField("**Output**: ",`**${answer}**`, true)
-    msg.channel.send(embed)
-    }
-};
-});
-
 client.on('message',  (message) => {
         if(message.content.startsWith('$kiss')) {
   let user = message.mentions.users.first();
@@ -1663,14 +1639,14 @@ client.on('message', message => {
 });
 
 client.on('guildCreate', guild => {
-  client.channels.get("489946025788702720").send(`✅ **تم اضافة البوت في سيرفر جديد مبروكك
+  client.channels.get("524901565472047116").send(`✅ **تم اضافة البوت في سيرفر جديد مبروكك
 Server name: __${guild.name}__
 Server owner: __${guild.owner}__
 Server id: __${guild.id}__ 
 Server Count: __${guild.memberCount}__**`)
 });
 client.on('guildDelete', guild => {
-  client.channels.get("489946025788702720").send(`❎ **طردوني حرام والله ايش سويت انا
+  client.channels.get("524901565472047116").send(`❎ **طردوني حرام والله ايش سويت انا
 Server name: __${guild.name}__
 Server owner: __${guild.owner}__
 Server id: __${guild.id}__ 
